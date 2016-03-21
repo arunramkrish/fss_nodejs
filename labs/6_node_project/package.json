@@ -1,0 +1,12 @@
+{
+  "name": "6_node_project",
+  "version": "1.0.0",
+  "description": "Our first Nodejs project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start" : "node 5_inheritance.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

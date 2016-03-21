@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+<body>
+	<script>
+	function Employee(name, country) {
+		this.name = name;
+		this.country = country;
+		this.state = (arguments[2]) ? arguments[2] : "";
+		this.yearsOfExp = (arguments[3]) ? arguments[3] : 1;
+	}
+
+Employee.prototype.getSalary = function() {
+		return this.yearsOfExp * 10000;
+}
+
+Employee.prototype.toString = function() {
+	return this.name + ":" + this.country + ":" + this.state + ":" + this.yearsOfExp;	
+}
+//var empArray = new Array();
+var empArray = [];
+empArray.push(new Employee("Arun", "India", "TN", 16));
+empArray.push(new Employee("Brun", "India", "TN", 9));
+empArray.push(new Employee("Trun", "India", "TN", 6));
+empArray.push(new Employee("Srun", "India", "TN", 19));
+empArray.push(new Employee("Krun", "India", "TN", 3));
+
+var expComparator = function(emp1, emp2) {
+	return emp1.yearsOfExp - emp2.yearsOfExp;
+}
+
+function mySort( myComparator, myReport) {
+	this.sort(myComparator);
+
+	for(var e in this) {
+		myReport(e, this[e]);
+	}
+}
+
+function printEmployee(index, element) {
+	document.write("using custom forEach index " + index + ":" + element + "<br/>");
+}
+mySort.call(empArray, expComparator, printEmployee);
+mySort.apply(empArray, [expComparator, printEmployee]);
+
+empArray.forEach(printEmployee);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+//"use strict"
+//literal notation = JavaScript Object Notation
+var emp = {
+	name: "Arun",
+	org: "FSS",
+	place: "Chennai",
+	currentYear: 2016,
+	address : {
+		line1 : "Siruseri",
+		state: "Tamilnadu",
+		city: "Chennai"
+	}
+};
+printEmp(emp);
+
+function printEmp(emp) { 
+	document.write(emp.name + " " + emp["org"] + " " + emp.place + " Address: " + emp.address.line1 + "<br/>" + emp["address"]["state"] + " " + emp["address"].city + "<br/>");
+}
+
+//using default constructor
+var emp2 = new Object();
+emp2.name="Ram";
+emp2.address = new Object();
+emp2.address.city = "Bangalore";
+
+printEmp(emp2);
+
+//Object using prototype
+var emp3 = Object.create(Object.prototype, { name : {value:"Krish", writable: false}, 
+			address : {value: {}}
+		});
+//following stmt will throw exception in strict mode
+//emp3.name="Moorthy";
+
+printEmp(emp3);
+
+//Inheritance by prototype chain
+var emp4 = Object.create(emp, {name: {value:"Karthi"}});
+printEmp(emp4);
+
+function Employee() {
+	this.name = "Indian";
+	this.country = "India";
+	this.state = "Tamilnadu";
+	this.yearsOfExp = 10;
+	/*
+	this.getSalary = function() {
+		return 100000;
+	}
+*/
+}
+
+Employee.prototype.getSalary = function() {
+		return this.yearsOfExp * 10000;
+}
+
+var emp5 = new Employee();
+
+//constr into individual steps
+var emp6 = Object.create(Employee.prototype);
+Employee.call(emp6);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
