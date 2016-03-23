@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://nodejs.org/dist/latest-v4.x/docs/api/util.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>util Node.js v4.4.0 Manual &amp; Documentation</title>
+  <link rel="stylesheet" href="./1_utilNode.js_files/css">
+  <link rel="stylesheet" href="./1_utilNode.js_files/style.css">
+  <link rel="stylesheet" href="./1_utilNode.js_files/sh.css">
+  <link rel="canonical" href="https://nodejs.org/api/util.html">
+<style type="text/css"></style></head>
+<body class="alt apidoc" id="api-section-util">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="https://nodejs.org/" title="Go back to the home page">
+          Node.js (1)
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="https://nodejs.org/dist/latest-v4.x/docs/api/documentation.html">About these Docs</a></li>
+<li><a class="nav-synopsis" href="https://nodejs.org/dist/latest-v4.x/docs/api/synopsis.html">Synopsis</a></li>
+<li><a class="nav-assert" href="https://nodejs.org/dist/latest-v4.x/docs/api/assert.html">Assertion Testing</a></li>
+<li><a class="nav-buffer" href="https://nodejs.org/dist/latest-v4.x/docs/api/buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="https://nodejs.org/dist/latest-v4.x/docs/api/addons.html">C/C++ Addons</a></li>
+<li><a class="nav-child_process" href="https://nodejs.org/dist/latest-v4.x/docs/api/child_process.html">Child Processes</a></li>
+<li><a class="nav-cluster" href="https://nodejs.org/dist/latest-v4.x/docs/api/cluster.html">Cluster</a></li>
+<li><a class="nav-console" href="https://nodejs.org/dist/latest-v4.x/docs/api/console.html">Console</a></li>
+<li><a class="nav-crypto" href="https://nodejs.org/dist/latest-v4.x/docs/api/crypto.html">Crypto</a></li>
+<li><a class="nav-debugger" href="https://nodejs.org/dist/latest-v4.x/docs/api/debugger.html">Debugger</a></li>
+<li><a class="nav-dns" href="https://nodejs.org/dist/latest-v4.x/docs/api/dns.html">DNS</a></li>
+<li><a class="nav-domain" href="https://nodejs.org/dist/latest-v4.x/docs/api/domain.html">Domain</a></li>
+<li><a class="nav-errors" href="https://nodejs.org/dist/latest-v4.x/docs/api/errors.html">Errors</a></li>
+<li><a class="nav-events" href="https://nodejs.org/dist/latest-v4.x/docs/api/events.html">Events</a></li>
+<li><a class="nav-fs" href="https://nodejs.org/dist/latest-v4.x/docs/api/fs.html">File System</a></li>
+<li><a class="nav-globals" href="https://nodejs.org/dist/latest-v4.x/docs/api/globals.html">Globals</a></li>
+<li><a class="nav-http" href="https://nodejs.org/dist/latest-v4.x/docs/api/http.html">HTTP</a></li>
+<li><a class="nav-https" href="https://nodejs.org/dist/latest-v4.x/docs/api/https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="https://nodejs.org/dist/latest-v4.x/docs/api/modules.html">Modules</a></li>
+<li><a class="nav-net" href="https://nodejs.org/dist/latest-v4.x/docs/api/net.html">Net</a></li>
+<li><a class="nav-os" href="https://nodejs.org/dist/latest-v4.x/docs/api/os.html">OS</a></li>
+<li><a class="nav-path" href="https://nodejs.org/dist/latest-v4.x/docs/api/path.html">Path</a></li>
+<li><a class="nav-process" href="https://nodejs.org/dist/latest-v4.x/docs/api/process.html">Process</a></li>
+<li><a class="nav-punycode" href="https://nodejs.org/dist/latest-v4.x/docs/api/punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="https://nodejs.org/dist/latest-v4.x/docs/api/querystring.html">Query Strings</a></li>
+<li><a class="nav-readline" href="https://nodejs.org/dist/latest-v4.x/docs/api/readline.html">Readline</a></li>
+<li><a class="nav-repl" href="https://nodejs.org/dist/latest-v4.x/docs/api/repl.html">REPL</a></li>
+<li><a class="nav-stream" href="https://nodejs.org/dist/latest-v4.x/docs/api/stream.html">Stream</a></li>
+<li><a class="nav-string_decoder" href="https://nodejs.org/dist/latest-v4.x/docs/api/string_decoder.html">String Decoder</a></li>
+<li><a class="nav-timers" href="https://nodejs.org/dist/latest-v4.x/docs/api/timers.html">Timers</a></li>
+<li><a class="nav-tls" href="https://nodejs.org/dist/latest-v4.x/docs/api/tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="https://nodejs.org/dist/latest-v4.x/docs/api/tty.html">TTY</a></li>
+<li><a class="nav-dgram" href="https://nodejs.org/dist/latest-v4.x/docs/api/dgram.html">UDP/Datagram</a></li>
+<li><a class="nav-url" href="https://nodejs.org/dist/latest-v4.x/docs/api/url.html">URL</a></li>
+<li><a class="nav-util active" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html">Utilities</a></li>
+<li><a class="nav-v8" href="https://nodejs.org/dist/latest-v4.x/docs/api/v8.html">V8</a></li>
+<li><a class="nav-vm" href="https://nodejs.org/dist/latest-v4.x/docs/api/vm.html">VM</a></li>
+<li><a class="nav-zlib" href="https://nodejs.org/dist/latest-v4.x/docs/api/zlib.html">ZLIB</a></li>
+</ul>
+
+    </div>
+
+    <div id="column1" data-id="util" class="interior">
+      <header>
+        <h1>Node.js v4.4.0 Documentation</h1>
+        <div id="gtoc">
+          <p>
+            <a href="https://nodejs.org/dist/latest-v4.x/docs/api/index.html" name="toc">Index</a> |
+            <a href="https://nodejs.org/dist/latest-v4.x/docs/api/all.html">View on single page</a> |
+            <a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.json">View as JSON</a>
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util">util</a><ul>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_debug_string">util.debug(string)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_debuglog_section">util.debuglog(section)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_deprecate_function_string">util.deprecate(function, string)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_error">util.error([...])</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_format_format">util.format(format[, ...])</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_inherits_constructor_superconstructor">util.inherits(constructor, superConstructor)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_inspect_object_options">util.inspect(object[, options])</a><ul>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_customizing_util_inspect_colors">Customizing <code>util.inspect</code> colors</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_custom_inspect_function_on_objects">Custom <code>inspect()</code> function on Objects</a></li>
+</ul>
+</li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isarray_object">util.isArray(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isboolean_object">util.isBoolean(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isbuffer_object">util.isBuffer(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isdate_object">util.isDate(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_iserror_object">util.isError(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isfunction_object">util.isFunction(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isnull_object">util.isNull(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isnullorundefined_object">util.isNullOrUndefined(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isnumber_object">util.isNumber(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isobject_object">util.isObject(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isprimitive_object">util.isPrimitive(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isregexp_object">util.isRegExp(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isstring_object">util.isString(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_issymbol_object">util.isSymbol(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isundefined_object">util.isUndefined(object)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_log_string">util.log(string)</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_print">util.print([...])</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_pump_readablestream_writablestream_callback">util.pump(readableStream, writableStream[, callback])</a></li>
+<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_puts">util.puts([...])</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>util<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util" id="util_util">#</a></span></h1>
+<pre class="api_stability api_stability_2 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">2</span> <span class="sh_symbol">-</span> Stable</pre><p>These functions are in the module <code>'util'</code>. Use <code>require('util')</code> to
+access them.
+
+</p>
+<p>The <code>util</code> module is primarily designed to support the needs of Node.js's
+internal APIs.  Many of these utilities are useful for your own
+programs.  If you find that these functions are lacking for your
+purposes, however, you are encouraged to write your own utilities.  We
+are not interested in any future additions to the <code>util</code> module that
+are unnecessary for Node.js's internal functionality.
+
+</p>
+<h2>util.debug(string)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_debug_string" id="util_util_debug_string">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated<span class="sh_symbol">:</span> Use <a href="https://nodejs.org/dist/latest-v4.x/docs/api/console.html#console_console_error_data"><code>console<span class="sh_symbol">.</span><span class="sh_function">error</span><span class="sh_symbol">()</span></code></a> instead<span class="sh_symbol">.</span></pre><p>Deprecated predecessor of <code>console.error</code>.
+
+</p>
+<h2>util.debuglog(section)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_debuglog_section" id="util_util_debuglog_section">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>section</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> The section of the program to be debugged</li>
+<li>Returns: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> The logging function</li>
+</ul></div>
+<p>This is used to create a function which conditionally writes to stderr
+based on the existence of a <code>NODE_DEBUG</code> environment variable.  If the
+<code>section</code> name appears in that environment variable, then the returned
+function will be similar to <code>console.error()</code>.  If not, then the
+returned function is a no-op.
+
+</p>
+<p>For example:
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">var</span> debuglog <span class="sh_symbol">=</span> util<span class="sh_symbol">.</span><span class="sh_function">debuglog</span><span class="sh_symbol">(</span><span class="sh_string">'foo'</span><span class="sh_symbol">);</span>
+
+<span class="sh_keyword">var</span> bar <span class="sh_symbol">=</span> <span class="sh_number">123</span><span class="sh_symbol">;</span>
+<span class="sh_function">debuglog</span><span class="sh_symbol">(</span><span class="sh_string">'hello from foo [%d]'</span><span class="sh_symbol">,</span> bar<span class="sh_symbol">);</span></code></pre>
+<p>If this program is run with <code>NODE_DEBUG=foo</code> in the environment, then
+it will output something like:
+
+</p>
+<pre class="sh_sourceCode"><code>FOO <span class="sh_number">3245</span><span class="sh_symbol">:</span> hello from foo <span class="sh_symbol">[</span><span class="sh_number">123</span><span class="sh_symbol">]</span></code></pre>
+<p>where <code>3245</code> is the process id.  If it is not run with that
+environment variable set, then it will not print anything.
+
+</p>
+<p>You may separate multiple <code>NODE_DEBUG</code> environment variables with a
+comma.  For example, <code>NODE_DEBUG=fs,net,tls</code>.
+
+</p>
+<h2>util.deprecate(function, string)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_deprecate_function_string" id="util_util_deprecate_function_string">#</a></span></h2>
+<p>Marks that a method should not be used any more.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+exports<span class="sh_symbol">.</span>puts <span class="sh_symbol">=</span> util<span class="sh_symbol">.</span><span class="sh_function">deprecate</span><span class="sh_symbol">(()</span> <span class="sh_symbol">=&gt;</span> <span class="sh_cbracket">{</span>
+  <span class="sh_keyword">for</span> <span class="sh_symbol">(</span><span class="sh_keyword">var</span> i <span class="sh_symbol">=</span> <span class="sh_number">0</span><span class="sh_symbol">,</span> len <span class="sh_symbol">=</span> <span class="sh_predef_var">arguments</span><span class="sh_symbol">.</span>length<span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;</span> len<span class="sh_symbol">;</span> <span class="sh_symbol">++</span>i<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span>
+    process<span class="sh_symbol">.</span>stdout<span class="sh_symbol">.</span><span class="sh_function">write</span><span class="sh_symbol">(</span><span class="sh_predef_var">arguments</span><span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">+</span> <span class="sh_string">'</span><span class="sh_specialchar">\n</span><span class="sh_string">'</span><span class="sh_symbol">);</span>
+  <span class="sh_cbracket">}</span>
+<span class="sh_cbracket">}</span><span class="sh_symbol">,</span> <span class="sh_string">'util.puts: Use console.log instead'</span><span class="sh_symbol">);</span></code></pre>
+<p>It returns a modified function which warns once by default.
+
+</p>
+<p>If <code>--no-deprecation</code> is set then this function is a NO-OP.  Configurable
+at run-time through the <code>process.noDeprecation</code> boolean (only effective
+when set before a module is loaded.)
+
+</p>
+<p>If <code>--trace-deprecation</code> is set, a warning and a stack trace are logged
+to the console the first time the deprecated API is used.  Configurable
+at run-time through the <code>process.traceDeprecation</code> boolean.
+
+</p>
+<p>If <code>--throw-deprecation</code> is set then the application throws an exception
+when the deprecated API is used.  Configurable at run-time through the
+<code>process.throwDeprecation</code> boolean.
+
+</p>
+<p><code>process.throwDeprecation</code> takes precedence over <code>process.traceDeprecation</code>.
+
+</p>
+<h2>util.error([...])<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_error" id="util_util_error">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated<span class="sh_symbol">:</span> Use <a href="https://nodejs.org/dist/latest-v4.x/docs/api/console.html#console_console_error_data"><code>console<span class="sh_symbol">.</span><span class="sh_function">error</span><span class="sh_symbol">()</span></code></a> instead<span class="sh_symbol">.</span></pre><p>Deprecated predecessor of <code>console.error</code>.
+
+</p>
+<h2>util.format(format[, ...])<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_format_format" id="util_util_format_format">#</a></span></h2>
+<p>Returns a formatted string using the first argument as a <code>printf</code>-like format.
+
+</p>
+<p>The first argument is a string that contains zero or more <em>placeholders</em>.
+Each placeholder is replaced with the converted value from its corresponding
+argument. Supported placeholders are:
+
+</p>
+<ul>
+<li><code>%s</code> - String.</li>
+<li><code>%d</code> - Number (both integer and float).</li>
+<li><code>%j</code> - JSON.  Replaced with the string <code>'[Circular]'</code> if the argument
+contains circular references.</li>
+<li><code>%%</code> - single percent sign (<code>'%'</code>). This does not consume an argument.</li>
+</ul>
+<p>If the placeholder does not have a corresponding argument, the placeholder is
+not replaced.
+
+</p>
+<pre class="sh_sourceCode"><code class="js">util<span class="sh_symbol">.</span><span class="sh_function">format</span><span class="sh_symbol">(</span><span class="sh_string">'%s:%s'</span><span class="sh_symbol">,</span> <span class="sh_string">'foo'</span><span class="sh_symbol">);</span> <span class="sh_comment">// 'foo:%s'</span></code></pre>
+<p>If there are more arguments than placeholders, the extra arguments are
+coerced to strings (for objects and symbols, <code>util.inspect()</code> is used)
+and then concatenated, delimited by a space.
+
+</p>
+<pre class="sh_sourceCode"><code class="js">util<span class="sh_symbol">.</span><span class="sh_function">format</span><span class="sh_symbol">(</span><span class="sh_string">'%s:%s'</span><span class="sh_symbol">,</span> <span class="sh_string">'foo'</span><span class="sh_symbol">,</span> <span class="sh_string">'bar'</span><span class="sh_symbol">,</span> <span class="sh_string">'baz'</span><span class="sh_symbol">);</span> <span class="sh_comment">// 'foo:bar baz'</span></code></pre>
+<p>If the first argument is not a format string then <code>util.format()</code> returns
+a string that is the concatenation of all its arguments separated by spaces.
+Each argument is converted to a string with <code>util.inspect()</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js">util<span class="sh_symbol">.</span><span class="sh_function">format</span><span class="sh_symbol">(</span><span class="sh_number">1</span><span class="sh_symbol">,</span> <span class="sh_number">2</span><span class="sh_symbol">,</span> <span class="sh_number">3</span><span class="sh_symbol">);</span> <span class="sh_comment">// '1 2 3'</span></code></pre>
+<h2>util.inherits(constructor, superConstructor)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_inherits_constructor_superconstructor" id="util_util_inherits_constructor_superconstructor">#</a></span></h2>
+<p>Inherit the prototype methods from one <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/constructor">constructor</a> into another.  The
+prototype of <code>constructor</code> will be set to a new object created from
+<code>superConstructor</code>.
+
+</p>
+<p>As an additional convenience, <code>superConstructor</code> will be accessible
+through the <code>constructor.super_</code> property.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+<span class="sh_keyword">const</span> EventEmitter <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'events'</span><span class="sh_symbol">);</span>
+
+<span class="sh_keyword">function</span> <span class="sh_function">MyStream</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span>
+    EventEmitter<span class="sh_symbol">.</span><span class="sh_function">call</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">);</span>
+<span class="sh_cbracket">}</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">inherits</span><span class="sh_symbol">(</span>MyStream<span class="sh_symbol">,</span> EventEmitter<span class="sh_symbol">);</span>
+
+MyStream<span class="sh_symbol">.</span><span class="sh_keyword">prototype</span><span class="sh_symbol">.</span>write <span class="sh_symbol">=</span> <span class="sh_keyword">function</span><span class="sh_symbol">(</span>data<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span>
+    <span class="sh_keyword">this</span><span class="sh_symbol">.</span><span class="sh_function">emit</span><span class="sh_symbol">(</span><span class="sh_string">'data'</span><span class="sh_symbol">,</span> data<span class="sh_symbol">);</span>
+<span class="sh_cbracket">}</span>
+
+<span class="sh_keyword">var</span> stream <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">MyStream</span><span class="sh_symbol">();</span>
+
+console<span class="sh_symbol">.</span><span class="sh_function">log</span><span class="sh_symbol">(</span>stream <span class="sh_keyword">instanceof</span> EventEmitter<span class="sh_symbol">);</span> <span class="sh_comment">// true</span>
+console<span class="sh_symbol">.</span><span class="sh_function">log</span><span class="sh_symbol">(</span>MyStream<span class="sh_symbol">.</span>super_ <span class="sh_symbol">===</span> EventEmitter<span class="sh_symbol">);</span> <span class="sh_comment">// true</span>
+
+stream<span class="sh_symbol">.</span><span class="sh_function">on</span><span class="sh_symbol">(</span><span class="sh_string">'data'</span><span class="sh_symbol">,</span> <span class="sh_symbol">(</span>data<span class="sh_symbol">)</span> <span class="sh_symbol">=&gt;</span> <span class="sh_cbracket">{</span>
+  console<span class="sh_symbol">.</span><span class="sh_function">log</span><span class="sh_symbol">(</span>`Received data<span class="sh_symbol">:</span> <span class="sh_string">"${data}"</span>`<span class="sh_symbol">);</span>
+<span class="sh_cbracket">}</span><span class="sh_symbol">)</span>
+stream<span class="sh_symbol">.</span><span class="sh_function">write</span><span class="sh_symbol">(</span><span class="sh_string">'It works!'</span><span class="sh_symbol">);</span> <span class="sh_comment">// Received data: "It works!"</span></code></pre>
+<h2>util.inspect(object[, options])<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_inspect_object_options" id="util_util_inspect_object_options">#</a></span></h2>
+<p>Return a string representation of <code>object</code>, which is useful for debugging.
+
+</p>
+<p>An optional <em>options</em> object may be passed that alters certain aspects of the
+formatted string:
+
+</p>
+<ul>
+<li><p><code>showHidden</code> - if <code>true</code> then the object's non-enumerable and symbol
+properties will be shown too. Defaults to <code>false</code>.</p>
+</li>
+<li><p><code>depth</code> - tells <code>inspect</code> how many times to recurse while formatting the
+object. This is useful for inspecting large complicated objects. Defaults to
+<code>2</code>. To make it recurse indefinitely pass <code>null</code>.</p>
+</li>
+<li><p><code>colors</code> - if <code>true</code>, then the output will be styled with ANSI color codes.
+Defaults to <code>false</code>. Colors are customizable, see <a href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_customizing_util_inspect_colors">Customizing
+<code>util.inspect</code> colors</a>.</p>
+</li>
+<li><p><code>customInspect</code> - if <code>false</code>, then custom <code>inspect(depth, opts)</code> functions
+defined on the objects being inspected won't be called. Defaults to <code>true</code>.</p>
+</li>
+</ul>
+<p>Example of inspecting all properties of the <code>util</code> object:
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+console<span class="sh_symbol">.</span><span class="sh_function">log</span><span class="sh_symbol">(</span>util<span class="sh_symbol">.</span><span class="sh_function">inspect</span><span class="sh_symbol">(</span>util<span class="sh_symbol">,</span> <span class="sh_cbracket">{</span> showHidden<span class="sh_symbol">:</span> <span class="sh_keyword">true</span><span class="sh_symbol">,</span> depth<span class="sh_symbol">:</span> <span class="sh_keyword">null</span> <span class="sh_cbracket">}</span><span class="sh_symbol">));</span></code></pre>
+<p>Values may supply their own custom <code>inspect(depth, opts)</code> functions, when
+called they receive the current depth in the recursive inspection, as well as
+the options object passed to <code>util.inspect()</code>.
+
+</p>
+<h3>Customizing <code>util.inspect</code> colors<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_customizing_util_inspect_colors" id="util_customizing_util_inspect_colors">#</a></span></h3>
+<!-- type=misc -->
+
+<p>Color output (if enabled) of <code>util.inspect</code> is customizable globally
+via <code>util.inspect.styles</code> and <code>util.inspect.colors</code> objects.
+
+</p>
+<p><code>util.inspect.styles</code> is a map assigning each style a color
+from <code>util.inspect.colors</code>.
+Highlighted styles and their default values are:
+ <em> <code>number</code> (yellow)
+ </em> <code>boolean</code> (yellow)
+ <em> <code>string</code> (green)
+ </em> <code>date</code> (magenta)
+ <em> <code>regexp</code> (red)
+ </em> <code>null</code> (bold)
+ <em> <code>undefined</code> (grey)
+ </em> <code>special</code> - only function at this time (cyan)
+ * <code>name</code> (intentionally no styling)
+
+</p>
+<p>Predefined color codes are: <code>white</code>, <code>grey</code>, <code>black</code>, <code>blue</code>, <code>cyan</code>,
+<code>green</code>, <code>magenta</code>, <code>red</code> and <code>yellow</code>.
+There are also <code>bold</code>, <code>italic</code>, <code>underline</code> and <code>inverse</code> codes.
+
+</p>
+<h3>Custom <code>inspect()</code> function on Objects<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_custom_inspect_function_on_objects" id="util_custom_inspect_function_on_objects">#</a></span></h3>
+<!-- type=misc -->
+
+<p>Objects also may define their own <code>inspect(depth)</code> function which <code>util.inspect()</code>
+will invoke and use the result of when inspecting the object:
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+<span class="sh_keyword">var</span> obj <span class="sh_symbol">=</span> <span class="sh_cbracket">{</span> name<span class="sh_symbol">:</span> <span class="sh_string">'nate'</span> <span class="sh_cbracket">}</span><span class="sh_symbol">;</span>
+obj<span class="sh_symbol">.</span>inspect <span class="sh_symbol">=</span> <span class="sh_keyword">function</span><span class="sh_symbol">(</span>depth<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span>
+  <span class="sh_keyword">return</span> `<span class="sh_cbracket">{</span>$<span class="sh_cbracket">{</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span>name<span class="sh_cbracket">}}</span>`<span class="sh_symbol">;</span>
+<span class="sh_cbracket">}</span><span class="sh_symbol">;</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">inspect</span><span class="sh_symbol">(</span>obj<span class="sh_symbol">);</span>
+  <span class="sh_comment">// "{nate}"</span></code></pre>
+<p>You may also return another Object entirely, and the returned String will be
+formatted according to the returned Object. This is similar to how
+<code>JSON.stringify()</code> works:
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">var</span> obj <span class="sh_symbol">=</span> <span class="sh_cbracket">{</span> foo<span class="sh_symbol">:</span> <span class="sh_string">'this will not show up in the inspect() output'</span> <span class="sh_cbracket">}</span><span class="sh_symbol">;</span>
+obj<span class="sh_symbol">.</span>inspect <span class="sh_symbol">=</span> <span class="sh_keyword">function</span><span class="sh_symbol">(</span>depth<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span>
+  <span class="sh_keyword">return</span> <span class="sh_cbracket">{</span> bar<span class="sh_symbol">:</span> <span class="sh_string">'baz'</span> <span class="sh_cbracket">}</span><span class="sh_symbol">;</span>
+<span class="sh_cbracket">}</span><span class="sh_symbol">;</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">inspect</span><span class="sh_symbol">(</span>obj<span class="sh_symbol">);</span>
+  <span class="sh_comment">// "{ bar: 'baz' }"</span></code></pre>
+<h2>util.isArray(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isarray_object" id="util_util_isarray_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Internal alias for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray"><code>Array.isArray</code></a>.
+
+</p>
+<p>Returns <code>true</code> if the given "object" is an <code>Array</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isArray</span><span class="sh_symbol">([])</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isArray</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_predef_func">Array</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isArray</span><span class="sh_symbol">(</span><span class="sh_cbracket">{}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span></code></pre>
+<h2>util.isBoolean(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isboolean_object" id="util_util_isboolean_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is a <code>Boolean</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isBoolean</span><span class="sh_symbol">(</span><span class="sh_number">1</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isBoolean</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isBoolean</span><span class="sh_symbol">(</span><span class="sh_keyword">false</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span></code></pre>
+<h2>util.isBuffer(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isbuffer_object" id="util_util_isbuffer_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated<span class="sh_symbol">:</span> Use <a href="https://nodejs.org/dist/latest-v4.x/docs/api/buffer.html#buffer_class_method_buffer_isbuffer_obj"><code>Buffer<span class="sh_symbol">.</span><span class="sh_function">isBuffer</span><span class="sh_symbol">()</span></code></a> instead<span class="sh_symbol">.</span></pre><p>Returns <code>true</code> if the given "object" is a <code>Buffer</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isBuffer</span><span class="sh_symbol">(</span><span class="sh_cbracket">{</span> length<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_cbracket">}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isBuffer</span><span class="sh_symbol">([])</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isBuffer</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_function">Buffer</span><span class="sh_symbol">(</span><span class="sh_string">'hello world'</span><span class="sh_symbol">))</span>
+  <span class="sh_comment">// true</span></code></pre>
+<h2>util.isDate(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isdate_object" id="util_util_isdate_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is a <code>Date</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isDate</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_predef_func">Date</span><span class="sh_symbol">())</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isDate</span><span class="sh_symbol">(</span><span class="sh_predef_func">Date</span><span class="sh_symbol">())</span>
+  <span class="sh_comment">// false (without 'new' returns a String)</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isDate</span><span class="sh_symbol">(</span><span class="sh_cbracket">{}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span></code></pre>
+<h2>util.isError(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_iserror_object" id="util_util_iserror_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is an <a href="https://nodejs.org/dist/latest-v4.x/docs/api/errors.html#errors_class_error"><code>Error</code></a>. Otherwise, returns
+<code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isError</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_predef_func">Error</span><span class="sh_symbol">())</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isError</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_predef_func">TypeError</span><span class="sh_symbol">())</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isError</span><span class="sh_symbol">(</span><span class="sh_cbracket">{</span> name<span class="sh_symbol">:</span> <span class="sh_string">'Error'</span><span class="sh_symbol">,</span> message<span class="sh_symbol">:</span> <span class="sh_string">'an error occurred'</span> <span class="sh_cbracket">}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span></code></pre>
+<h2>util.isFunction(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isfunction_object" id="util_util_isfunction_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is a <code>Function</code>. Otherwise, returns
+<code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+<span class="sh_keyword">function</span> <span class="sh_function">Foo</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{}</span>
+<span class="sh_keyword">var</span> Bar <span class="sh_symbol">=</span> <span class="sh_keyword">function</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{}</span><span class="sh_symbol">;</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isFunction</span><span class="sh_symbol">(</span><span class="sh_cbracket">{}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isFunction</span><span class="sh_symbol">(</span>Foo<span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isFunction</span><span class="sh_symbol">(</span>Bar<span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span></code></pre>
+<h2>util.isNull(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isnull_object" id="util_util_isnull_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is strictly <code>null</code>. Otherwise, returns
+<code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isNull</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isNull</span><span class="sh_symbol">(</span><span class="sh_predef_var">undefined</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isNull</span><span class="sh_symbol">(</span><span class="sh_keyword">null</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span></code></pre>
+<h2>util.isNullOrUndefined(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isnullorundefined_object" id="util_util_isnullorundefined_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is <code>null</code> or <code>undefined</code>. Otherwise,
+returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isNullOrUndefined</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isNullOrUndefined</span><span class="sh_symbol">(</span><span class="sh_predef_var">undefined</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isNullOrUndefined</span><span class="sh_symbol">(</span><span class="sh_keyword">null</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span></code></pre>
+<h2>util.isNumber(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isnumber_object" id="util_util_isnumber_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is a <code>Number</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isNumber</span><span class="sh_symbol">(</span><span class="sh_keyword">false</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isNumber</span><span class="sh_symbol">(</span><span class="sh_predef_var">Infinity</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isNumber</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isNumber</span><span class="sh_symbol">(</span><span class="sh_predef_var">NaN</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span></code></pre>
+<h2>util.isObject(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isobject_object" id="util_util_isobject_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is strictly an <code>Object</code> <strong>and</strong> not a
+<code>Function</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isObject</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isObject</span><span class="sh_symbol">(</span><span class="sh_keyword">null</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isObject</span><span class="sh_symbol">(</span><span class="sh_cbracket">{}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isObject</span><span class="sh_symbol">(</span><span class="sh_keyword">function</span><span class="sh_symbol">()</span><span class="sh_cbracket">{}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span></code></pre>
+<h2>util.isPrimitive(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isprimitive_object" id="util_util_isprimitive_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is a primitive type. Otherwise, returns
+<code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_string">'foo'</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_keyword">false</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_keyword">null</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_predef_var">undefined</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_cbracket">{}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_keyword">function</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_regexp">/^$/</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isPrimitive</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_predef_func">Date</span><span class="sh_symbol">())</span>
+  <span class="sh_comment">// false</span></code></pre>
+<h2>util.isRegExp(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isregexp_object" id="util_util_isregexp_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is a <code>RegExp</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isRegExp</span><span class="sh_symbol">(</span><span class="sh_regexp">/some regexp/</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isRegExp</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_predef_func">RegExp</span><span class="sh_symbol">(</span><span class="sh_string">'another regexp'</span><span class="sh_symbol">))</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isRegExp</span><span class="sh_symbol">(</span><span class="sh_cbracket">{}</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span></code></pre>
+<h2>util.isString(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isstring_object" id="util_util_isstring_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is a <code>String</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isString</span><span class="sh_symbol">(</span><span class="sh_string">''</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isString</span><span class="sh_symbol">(</span><span class="sh_string">'foo'</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isString</span><span class="sh_symbol">(</span><span class="sh_predef_func">String</span><span class="sh_symbol">(</span><span class="sh_string">'foo'</span><span class="sh_symbol">))</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isString</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span></code></pre>
+<h2>util.isSymbol(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_issymbol_object" id="util_util_issymbol_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is a <code>Symbol</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+util<span class="sh_symbol">.</span><span class="sh_function">isSymbol</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isSymbol</span><span class="sh_symbol">(</span><span class="sh_string">'foo'</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isSymbol</span><span class="sh_symbol">(</span><span class="sh_function">Symbol</span><span class="sh_symbol">(</span><span class="sh_string">'foo'</span><span class="sh_symbol">))</span>
+  <span class="sh_comment">// true</span></code></pre>
+<h2>util.isUndefined(object)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_isundefined_object" id="util_util_isundefined_object">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated</pre><p>Returns <code>true</code> if the given "object" is <code>undefined</code>. Otherwise, returns <code>false</code>.
+
+</p>
+<pre class="sh_sourceCode"><code class="js"><span class="sh_keyword">const</span> util <span class="sh_symbol">=</span> <span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">);</span>
+
+<span class="sh_keyword">var</span> foo<span class="sh_symbol">;</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isUndefined</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isUndefined</span><span class="sh_symbol">(</span>foo<span class="sh_symbol">)</span>
+  <span class="sh_comment">// true</span>
+util<span class="sh_symbol">.</span><span class="sh_function">isUndefined</span><span class="sh_symbol">(</span><span class="sh_keyword">null</span><span class="sh_symbol">)</span>
+  <span class="sh_comment">// false</span></code></pre>
+<h2>util.log(string)<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_log_string" id="util_util_log_string">#</a></span></h2>
+<p>Output with timestamp on <code>stdout</code>.
+
+</p>
+<pre class="sh_sourceCode"><code><span class="sh_function">require</span><span class="sh_symbol">(</span><span class="sh_string">'util'</span><span class="sh_symbol">).</span><span class="sh_function">log</span><span class="sh_symbol">(</span><span class="sh_string">'Timestamped message.'</span><span class="sh_symbol">);</span></code></pre>
+<h2>util.print([...])<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_print" id="util_util_print">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated<span class="sh_symbol">:</span> Use <a href="https://nodejs.org/dist/latest-v4.x/docs/api/console.html#console_console_log_data"><code>console<span class="sh_symbol">.</span><span class="sh_function">log</span><span class="sh_symbol">()</span></code></a> instead<span class="sh_symbol">.</span></pre><p>Deprecated predecessor of <code>console.log</code>.
+
+</p>
+<h2>util.pump(readableStream, writableStream[, callback])<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_pump_readablestream_writablestream_callback" id="util_util_pump_readablestream_writablestream_callback">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated<span class="sh_symbol">:</span> Use readableStream<span class="sh_symbol">.</span><span class="sh_function">pipe</span><span class="sh_symbol">(</span>writableStream<span class="sh_symbol">)</span></pre><p>Deprecated predecessor of <code>stream.pipe()</code>.
+
+</p>
+<h2>util.puts([...])<span><a class="mark" href="https://nodejs.org/dist/latest-v4.x/docs/api/util.html#util_util_puts" id="util_util_puts">#</a></span></h2>
+<pre class="api_stability api_stability_0 sh_sourceCode">Stability<span class="sh_symbol">:</span> <span class="sh_number">0</span> <span class="sh_symbol">-</span> Deprecated<span class="sh_symbol">:</span> Use <a href="https://nodejs.org/dist/latest-v4.x/docs/api/console.html#console_console_log_data"><code>console<span class="sh_symbol">.</span><span class="sh_function">log</span><span class="sh_symbol">()</span></code></a> instead<span class="sh_symbol">.</span></pre><p>Deprecated predecessor of <code>console.log</code>.
+
+</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="./1_utilNode.js_files/sh_main.js"></script>
+  <script src="./1_utilNode.js_files/sh_javascript.min.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+
+
+
+</body></html>
