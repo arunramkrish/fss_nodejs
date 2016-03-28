@@ -8,16 +8,23 @@ var http = require("http");
 var util = require("util");
 
 
-var httpServer = http.createServer(function(request, response) {
+var httpServer = http.createServer();
+
+var requestHandler = function(request, response) {
 	console.log("Received request " + util.inspect(request));
 	response.end("Response from server");
-});
+};
 
+httpServer.on("request", requestHandler);
 
-httpServer.listen(3000, "localhost", 511, function(err) {
+var listenerHandler = function(err) {
     if (!err) {
         console.log("Server listening on port 3000");
     } else {
         console.log(err);
     }
-});
+}
+httpServer.on("listening", listenerHandler);
+
+
+httpServer.listen(3000, "localhost");
